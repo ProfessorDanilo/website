@@ -23,6 +23,7 @@ def index():
     posts = Posts.query.all()
     return render_template('index.html', posts=posts)
 
+
 def get_post(post_id):
    post = Posts.query.filter_by(id=post_id).first()
    if post is None:

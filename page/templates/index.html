@@ -1,12 +1,12 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <h1>{% block title %} Projeto integrador 01 - Material didático para o ensino de
+    <h1>{% block title %} Material didático para o ensino de
         programação {% endblock %}</h1>
         <p>Este site mostra diversas atividades para ensino de lógica.</p>
     
-    <h2>Aula 01 - Tabela verdade</h3>
-
+    <h2>Atividade: Tabela verdade</h3>
+    <!--
     <button type="button"
         onclick="window.location.href='https://www.youtube.com/watch?v=QE6ruiq632o'"
         class="btn btn-primary">Aula 01 - Clique aqui!</button>
@@ -17,16 +17,21 @@
         <iframe width="500" height="315" src="https://www.univesp.br" title="YouTube
         video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
         encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+    -->
+    <!--     
     <div class="row">
         <div class="column" style="background-color:#aaa;">Column</div>
         <div class="column" style="background-color:#bbb;">Column</div>
         <div class="column" style="background-color:#ccc;">Column</div>
     </div>
-  
-    <h3> Aula 02 - Python</h3>
-    <button type="button" class="btn btn-primary">Aula 02 - Clique aqui!</button>
+   -->
+    
+{% endblock %}
 
+{% block content2%}
+    <h3> Aula 02 - Python</h3>
+    <button type="button" class="btn btn-primary">Atividade 02 - Clique aqui!</button>
+    
     {% for post in posts %}
         <a href="{{ url_for('post', post_id=post['id'])}}">
             <h2>{{ post['title'] }}</h2>
@@ -37,8 +42,19 @@
         </a>
         <h>
     {% endfor %}
-
+        
 {% endblock %}
 
-
-
+{% block content3%}
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id'])}}">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <span class="badge badge-warning">Editar</span>
+        </a>
+        <h>
+    {% endfor %}
+        
+{% endblock %}
